@@ -46,8 +46,8 @@ def main(argv):
     tf_idf_details = calculate_tf_idf(word_map) # Implement this function
     for document in sorted(tf_idf_details, key=lambda x: x[0]):
         print(document)
-        for word in OrderedDict(sorted(tf_idf_details[document].items(), key=lambda t: t[1], reverse=True)):
-             print(word + " " + str(round(tf_idf_details[document][word], 5)))
+        for word in OrderedDict(sorted(list(tf_idf_details[document].items())[:20], key=lambda t: t[1], reverse=True)):
+            print(word + " " + str(round(tf_idf_details[document][word], 5)))
             
             
 def calculate_tf(values):
